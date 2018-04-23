@@ -12,6 +12,7 @@ import org.mapstruct.*;
 public interface LocationMapper extends EntityMapper<LocationDTO, Location> {
 
     @Mapping(source = "country.id", target = "countryId")
+    @Mapping(source = "country.countryName", target = "countryCountryName")
     LocationDTO toDto(Location location);
 
     @Mapping(source = "countryId", target = "country")
