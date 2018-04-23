@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A DTO for the Task entity.
  */
-public class TaskDTO implements Serializable {
+public class TaskDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long id;
 

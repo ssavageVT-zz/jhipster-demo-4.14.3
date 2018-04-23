@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A DTO for the Location entity.
  */
-public class LocationDTO implements Serializable {
+public class LocationDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long id;
 

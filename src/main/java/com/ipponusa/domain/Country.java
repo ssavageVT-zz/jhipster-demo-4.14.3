@@ -11,7 +11,7 @@ import java.util.Objects;
  */
 @Entity
 @Table(name = "country")
-public class Country implements Serializable {
+public class Country extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

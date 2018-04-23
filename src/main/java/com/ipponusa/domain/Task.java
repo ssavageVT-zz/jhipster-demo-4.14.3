@@ -17,7 +17,7 @@ import java.util.Objects;
 @ApiModel(description = "Task entity. @author The JHipster team.")
 @Entity
 @Table(name = "task")
-public class Task implements Serializable {
+public class Task extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

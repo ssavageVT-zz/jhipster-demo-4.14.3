@@ -9,7 +9,7 @@ import java.util.Objects;
 /**
  * A DTO for the Job entity.
  */
-public class JobDTO implements Serializable {
+public class JobDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long id;
 

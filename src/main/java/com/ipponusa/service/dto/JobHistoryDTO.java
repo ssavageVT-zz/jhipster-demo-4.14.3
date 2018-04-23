@@ -11,7 +11,7 @@ import com.ipponusa.domain.enumeration.Language;
 /**
  * A DTO for the JobHistory entity.
  */
-public class JobHistoryDTO implements Serializable {
+public class JobHistoryDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long id;
 

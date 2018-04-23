@@ -13,7 +13,7 @@ import java.util.Objects;
 @ApiModel(description = "not an ignored comment")
 @Entity
 @Table(name = "location")
-public class Location implements Serializable {
+public class Location extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

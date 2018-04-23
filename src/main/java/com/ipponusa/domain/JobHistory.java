@@ -14,7 +14,7 @@ import com.ipponusa.domain.enumeration.Language;
  */
 @Entity
 @Table(name = "job_history")
-public class JobHistory implements Serializable {
+public class JobHistory extends AbstractAuditingEntity implements Serializable {
 
     private static final long serialVersionUID = 1L;
 

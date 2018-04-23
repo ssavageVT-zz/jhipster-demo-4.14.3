@@ -10,7 +10,7 @@ import java.util.Objects;
 /**
  * A DTO for the Department entity.
  */
-public class DepartmentDTO implements Serializable {
+public class DepartmentDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long id;
 

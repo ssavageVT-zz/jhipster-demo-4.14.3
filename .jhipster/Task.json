@@ -25,5 +25,6 @@
     "dto": "mapstruct",
     "pagination": "no",
     "service": "serviceImpl",
-    "jpaMetamodelFiltering": false
+    "jpaMetamodelFiltering": false,
+    "enableEntityAudit": true
 }

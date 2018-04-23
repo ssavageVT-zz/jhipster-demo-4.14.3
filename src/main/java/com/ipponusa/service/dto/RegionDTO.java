@@ -7,7 +7,7 @@ import java.util.Objects;
 /**
  * A DTO for the Region entity.
  */
-public class RegionDTO implements Serializable {
+public class RegionDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long id;
 
