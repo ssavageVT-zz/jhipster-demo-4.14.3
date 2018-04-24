@@ -14,9 +14,10 @@ export class EntityAuditService {
     }
 
     findByEntity(entity: string, limit: number): Observable<EntityAuditEvent[]> {
-        const params = new HttpParams();
-        params.set('entityType', entity);
-        params.set('limit', limit.toString());
+
+        const params = new HttpParams()
+        .append('entityType', entity)
+        .append('limit', limit.toString());
 
         return this.http.get<EntityAuditEvent[]>('api/audits/entity/changes', { params });
     }
