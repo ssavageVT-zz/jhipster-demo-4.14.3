@@ -17,6 +17,8 @@ public class CountryDTO extends AbstractAuditingDTO implements Serializable {
 
     private Long regionId;
 
+    private String regionRegionName;
+
     public Long getId() {
         return id;
     }
@@ -39,6 +41,14 @@ public class CountryDTO extends AbstractAuditingDTO implements Serializable {
 
     public void setRegionId(Long regionId) {
         this.regionId = regionId;
+    }
+
+    public String getRegionRegionName() {
+        return regionRegionName;
+    }
+
+    public void setRegionRegionName(String regionRegionName) {
+        this.regionRegionName = regionRegionName;
     }
 
     @Override

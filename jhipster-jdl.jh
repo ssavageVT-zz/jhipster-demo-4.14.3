@@ -61,11 +61,11 @@ enum Language {
 }
 
 relationship OneToOne {
-	Country{region} to Region
+	Country{region(regionName)} to Region
 }
 
 relationship OneToOne {
-	Location{country} to Country
+	Location{country(countryName)} to Country
 }
 
 relationship OneToOne {
