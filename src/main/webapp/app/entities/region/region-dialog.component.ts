@@ -1,8 +1,9 @@
 import { Component, OnInit, OnDestroy } from '@angular/core';
-import { ActivatedRoute } from '@angular/router';
+import { ActivatedRoute, Router } from '@angular/router';
 import { HttpResponse, HttpErrorResponse } from '@angular/common/http';
 
 import { Observable } from 'rxjs/Observable';
+import { Subscription } from 'rxjs/Subscription';
 import { NgbActiveModal } from '@ng-bootstrap/ng-bootstrap';
 import { JhiEventManager } from 'ng-jhipster';
 
@@ -19,19 +20,43 @@ export class RegionDialogComponent implements OnInit {
     region: Region;
     isSaving: boolean;
 
+    private subscription: Subscription;
+    private eventSubscriber: Subscription;
+
     constructor(
-        public activeModal: NgbActiveModal,
         private regionService: RegionService,
-        private eventManager: JhiEventManager
+        private eventManager: JhiEventManager,
+        private route: ActivatedRoute,
+        private router: Router
     ) {
     }
 
     ngOnInit() {
         this.isSaving = false;
+        this.route.params.subscribe((params) => {
+            if (params['id']) {
+                this.load(params['id']);
+            } else {
+                this.region = new Region();
+            }
+        });
+
+        this.registerChangeInRegions();
+    }
+
+    load(id) {
+        this.regionService.find(id)
+            .subscribe((regionResponse: HttpResponse<Region>) => {
+                this.region = regionResponse.body;
+            });
+    }
+
+    previousState() {
+        window.history.back();
     }
 
     clear() {
-        this.activeModal.dismiss('cancel');
+        // this.activeModal.dismiss('cancel');
     }
 
     save() {
@@ -53,11 +78,19 @@ export class RegionDialogComponent implements OnInit {
     private onSaveSuccess(result: Region) {
         this.eventManager.broadcast({ name: 'regionListModification', content: 'OK'});
         this.isSaving = false;
-        this.activeModal.dismiss(result);
+        // this.activeModal.dismiss(result);
+        this.router.navigate(['region']);
     }
 
     private onSaveError() {
         this.isSaving = false;
+    }
+
+    registerChangeInRegions() {
+        this.eventSubscriber = this.eventManager.subscribe(
+            'regionListModification',
+            (response) => this.load(this.region.id)
+        );
     }
 }
 

@@ -1,7 +1,7 @@
 <div>
     <h2>
         <span jhiTranslate="jhipsterApp.region.home.title">Regions</span>
-        <button class="btn btn-primary float-right jh-create-entity create-region" [routerLink]="['/', { outlets: { popup: ['region-new'] } }]">
+        <button class="btn btn-primary float-right jh-create-entity create-region" [routerLink]="['../region-new']">
             <span class="fa fa-plus"></span>
             <span  jhiTranslate="jhipsterApp.region.home.createLabel">
             Create new Region
@@ -34,8 +34,7 @@
                             <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
                         </button>
                         <button type="submit"
-                                [routerLink]="['/', { outlets: { popup: 'region/'+ region.id + '/edit'} }]"
-                                replaceUrl="true"
+                                [routerLink]="['../region', region.id, 'edit']"
                                 queryParamsHandling="merge"
                                 class="btn btn-primary btn-sm">
                             <span class="fa fa-pencil"></span>

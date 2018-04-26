@@ -3,7 +3,7 @@ import { Routes } from '@angular/router';
 import { UserRouteAccessService } from '../../shared';
 import { RegionComponent } from './region.component';
 import { RegionDetailComponent } from './region-detail.component';
-import { RegionPopupComponent } from './region-dialog.component';
+import { RegionDialogComponent, RegionPopupComponent } from './region-dialog.component';
 import { RegionDeletePopupComponent } from './region-delete-dialog.component';
 
 export const regionRoute: Routes = [
@@ -23,30 +23,29 @@ export const regionRoute: Routes = [
             pageTitle: 'jhipsterApp.region.home.title'
         },
         canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'region-new',
+        component: RegionDialogComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'jhipsterApp.region.home.title'
+        },
+        canActivate: [UserRouteAccessService]
+    },
+    {
+        path: 'region/:id/edit',
+        component: RegionDialogComponent,
+        data: {
+            authorities: ['ROLE_USER'],
+            pageTitle: 'jhipsterApp.region.home.title'
+        },
+        canActivate: [UserRouteAccessService]
     }
 ];
 
 export const regionPopupRoute: Routes = [
-    {
-        path: 'region-new',
-        component: RegionPopupComponent,
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'jhipsterApp.region.home.title'
-        },
-        canActivate: [UserRouteAccessService],
-        outlet: 'popup'
-    },
-    {
-        path: 'region/:id/edit',
-        component: RegionPopupComponent,
-        data: {
-            authorities: ['ROLE_USER'],
-            pageTitle: 'jhipsterApp.region.home.title'
-        },
-        canActivate: [UserRouteAccessService],
-        outlet: 'popup'
-    },
+
     {
         path: 'region/:id/delete',
         component: RegionDeletePopupComponent,
